@@ -1,0 +1,281 @@
+.world-clock-container {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+  min-height: 100vh;
+}
+
+.world-clock-container .container {
+  max-width: 1400px;
+}
+
+.clock-title {
+  font-size: 3rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.clock-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.clocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.clock-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid #8B4513;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.clock-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.clock-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.clock-flag {
+  font-size: 2rem;
+}
+
+.clock-city {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.clock-display {
+  width: 100%;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.digital-time {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.clock-date {
+  color: #8B4513;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.clock-analog {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.analog-clock {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #8B4513;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  background: #8B4513;
+  border-radius: 10px;
+}
+
+.hour-hand {
+  width: 4px;
+  height: 30px;
+  margin-left: -2px;
+}
+
+.minute-hand {
+  width: 3px;
+  height: 40px;
+  margin-left: -1.5px;
+  background: #A0522D;
+}
+
+.second-hand {
+  width: 2px;
+  height: 45px;
+  margin-left: -1px;
+  background: #e74c3c;
+}
+
+.center-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Current Time Info Section */
+.current-time-info {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.current-time-info h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.info-card {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+/* Animations */
+@keyframes tickTock {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+}
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+  animation: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clock-title {
+    font-size: 2rem;
+  }
+
+  .clocks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .digital-time {
+    font-size: 1.8rem;
+  }
+
+  .clock-card {
+    padding: 1rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clock-analog {
+    height: 100px;
+  }
+
+  .analog-clock {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-title {
+    font-size: 1.5rem;
+  }
+
+  .clocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clock-subtitle {
+    font-size: 1rem;
+  }
+
+  .digital-time {
+    font-size: 1.5rem;
+  }
+
+  .clock-card {
+    padding: 0.75rem;
+  }
+}
